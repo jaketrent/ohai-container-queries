@@ -1,0 +1,15 @@
+{
+  "name": "ohai-container-queries",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Demo of css container queries",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server public"
+  },
+  "author": "jaketrent",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
