@@ -1,0 +1,42 @@
+/* resets */
+body {
+  font-size: 20px;
+  line-height: 1.25rem;
+  font-family: sans-serif;
+}
+
+/* page */
+body {
+  background: linear-gradient(90deg, #fcff9e 0%, #c67700 100%);
+  padding: 1rem;
+  min-height: auto;
+  overflow-y: scroll;
+}
+h1 {
+  font-size: 4rem;
+}
+
+/* container context */
+.container {
+  border: 4px dashed blue;
+  margin-bottom: 3rem;
+  container-type: inline-size;
+  container-name: buttonstuff;
+}
+
+
+/* component, "mobile" first */
+button {
+  padding: 1rem 2rem;
+  background: white;
+  border: 1px solid black;
+  border-radius: 9999px;
+  font-size: 1rem;
+  width: 100%;
+  letter-spacing: 0.1ch;
+}
+@container buttonstuff (min-width: 500px) {
+  button {
+    width: auto;
+  }
+}

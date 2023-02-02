@@ -1,0 +1,130 @@
+/* resets */
+body {
+  font-size: 16px;
+  line-height: 1.25rem;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+img {
+  display: block;
+}
+h1, h2 {
+  line-height: 1em;
+}
+
+/* page */
+body {
+  background: linear-gradient(90deg, #fcff9e 0%, #c67700 100%);
+  padding: 1rem;
+  min-height: auto;
+}
+h1 {
+  font-size: 4rem;
+}
+
+/* mobile components */
+article {
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 2rem;
+  background: #efefef;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.2), -4px -4px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+ul {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+figure {
+  margin: 0;
+  height: 300px;
+  overflow: hidden;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* @media (min-width: 1300px) { */
+/*   .roster { */
+/*     display: grid; */
+/*     grid-template-columns: repeat(3, minmax(300px, 1fr)); */
+/*     gap: 2rem; */
+/*  } */
+/* } */
+
+/* NOTE - alternative to @media on .roster because .roster happens to be full viewport-width */
+.card-grid {
+  container-type: size;
+  container-name: card-grid;
+}
+/* NOTE - refers to container-name */
+@container card-grid (min-width: 1300px) {
+  .roster {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+}
+
+.spec-card {
+  /* NOTE - shorthand */
+  container: spec-card / inline-size;
+}
+@container spec-card (min-width: 500px) {
+  /* NOTE can only target children of container */
+  article {
+    background: orange;
+    display: grid;
+    grid-template-areas:
+      "mug heading"
+      "mug body";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.25em;
+    justify-items: left;
+  }
+  h2 {
+    font-size: 3rem;
+    margin-top: 0;
+  }
+  ul {
+  }
+  figure {
+    grid-area: mug;
+  }
+  heading {
+    grid-area: heading;
+  }
+  p, button {
+    grid-area: body;
+  }
+  img {
+    object-fit: contain;
+  }
+}
+/* NOTE - not working - container context element goes to height 0 */
+@container card-grid (min-height: 1000px) {
+  figure {
+    height: 500px;
+  }
+}
+/* NOTE - handled with @media query */
+@media (min-height: 1000px) {
+  figure {
+    height: 500px;
+  }
+}
